@@ -1,0 +1,11 @@
+pluginManagement {
+   repositories {
+      gradlePluginPortal()
+      maven { url = uri("https://repo.nokee.dev/release") }
+      maven { url = uri("https://repo.nokee.dev/snapshot") }
+   }
+}
+
+plugins {
+   id 'dev.nokee.xcode-build-adapter' version '0.4.3181-202304031623.be5da4d7'
+}
