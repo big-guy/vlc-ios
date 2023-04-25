@@ -11,3 +11,6 @@ plugins {
    id("com.gradle.enterprise").version("3.12.6") // Sync with `build-logic/build-platform/build.gradle.kts`
    id("io.github.gradle.gradle-enterprise-conventions-plugin").version("0.7.6")
 }
+
+rootProject.name = 'vlc-ios'
+
