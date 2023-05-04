@@ -1,8 +1,8 @@
 pluginManagement {
    repositories {
-      gradlePluginPortal()
-      maven { url = uri("https://repo.nokee.dev/release") }
-      maven { url = uri("https://repo.nokee.dev/snapshot") }
+	  gradlePluginPortal()
+	  maven { url = uri("https://repo.nokee.dev/release") }
+	  maven { url = uri("https://repo.nokee.dev/snapshot") }
    }
 }
 
@@ -14,3 +14,49 @@ plugins {
 
 rootProject.name = 'vlc-ios'
 
+
+import dev.nokee.buildadapter.xcode.internal.plugins.XcodeTargetExecTask
+
+gradle.rootProject {
+	project(':VLC') {
+		tasks.withType(XcodeTargetExecTask).configureEach {
+			buildSettings.from([SWIFT_MODULE_NAME: '$(PRODUCT_MODULE_NAME)'])
+			if (name.startsWith('VLC-iOS')) {
+				buildSettings.from([
+					PODS_PODFILE_DIR_PATH: rootDir,
+					PODS_ROOT: "$rootDir/Pods",
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)',
+					PODS_XCFRAMEWORKS_BUILD_DIR: '$(CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates',
+					PODS_CONFIGURATION_BUILD_DIR: '$(CONFIGURATION_BUILD_DIR)',
+			
+					DERIVED_FILE_DIR: '$(OBJROOT)/$(PROJECT_NAME).build/$(CONFIGURATION)-$(PLATFORM_NAME)/$(TARGET_NAME).build/DerivedSources',
+					TARGET_BUILD_DIR: '$(CONFIGURATION_BUILD_DIR)',
+					FRAMEWORKS_FOLDER_PATH: 'VLC for iOS.app/Frameworks',
+					UNLOCALIZED_RESOURCES_FOLDER_PATH: 'VLC for iOS.app',
+					PRODUCT_MODULE_NAME: 'VLC',
+				])
+			}
+		}
+	}
+
+	project(':Pods:Pods') {
+		tasks.withType(XcodeTargetExecTask).configureEach {
+			buildSettings.from([SWIFT_MODULE_NAME: '$(PRODUCT_MODULE_NAME)'])
+			if (name.startsWith('MarqueeLabel')) {
+				buildSettings.from([
+					DERIVED_SOURCES_DIR: '$(OBJROOT)/$(PROJECT_NAME).build/$(CONFIGURATION)-$(PLATFORM_NAME)/$(TARGET_NAME).build/DerivedSources',
+					PRODUCT_MODULE_NAME: 'MarqueeLabel',
+					PODS_ROOT: "$rootDir/Pods",
+				])
+			} else if (name.startsWith('VLCMediaLibraryKit')) {
+				buildSettings.from([
+					PODS_ROOT: "$rootDir/Pods",
+				])
+			} else if (name.startsWith('MobileVLCKit')) {
+				buildSettings.from([
+					PODS_ROOT: "$rootDir/Pods",
+				])
+			}
+		}
+	}
+}
