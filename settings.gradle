@@ -47,16 +47,111 @@ gradle.rootProject {
 					DERIVED_SOURCES_DIR: '$(OBJROOT)/$(PROJECT_NAME).build/$(CONFIGURATION)-$(PLATFORM_NAME)/$(TARGET_NAME).build/DerivedSources',
 					PRODUCT_MODULE_NAME: 'MarqueeLabel',
 					PODS_ROOT: "$rootDir/Pods",
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/MarqueeLabel',
 				])
 			} else if (name.startsWith('VLCMediaLibraryKit')) {
 				buildSettings.from([
 					PODS_ROOT: "$rootDir/Pods",
+					PODS_XCFRAMEWORKS_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/XCFrameworkIntermediates',
 				])
 			} else if (name.startsWith('MobileVLCKit')) {
 				buildSettings.from([
 					PODS_ROOT: "$rootDir/Pods",
+					PODS_XCFRAMEWORKS_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/XCFrameworkIntermediates',
 				])
-			}
+			} else if (name.startsWith('Pods-VLC-iOS')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)',
+                ])
+			} else if (name.startsWith('box-ios-sdk-v2-iOS')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/$(TARGET_NAME)',
+                ])
+			} else if (name.startsWith('XKKeychain-iOS-XKKeychain')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/XKKeychain-iOS',
+                ])
+			} else if (name.startsWith('XKKeychain-iOS')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/XKKeychain-iOS',
+                ])
+			} else if (name.startsWith('xmlrpc-iOS')) {
+                buildSettings.from([
+				    CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/xmlrpc-iOS',
+                ])
+			} else if (name.startsWith('OBSlider')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/OBSlider',
+                ])
+			} else if (name.startsWith('MSGraphMSALAuthProvider')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/MSGraphMSALAuthProvider',
+                ])
+			} else if (name.startsWith('NSData+Base64-iOS')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/NSData+Base64-iOS',
+                ])
+			} else if (name.startsWith('ObjectiveDropboxOfficial')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/ObjectiveDropboxOfficial',
+                ])
+			} else if (name.startsWith('VLC-MSAL')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/VLC-MSAL',
+                ])
+			} else if (name.startsWith('GoogleSignIn-GoogleSignIn')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/GoogleSignIn',
+                ])
+			} else if (name.startsWith('GoogleSignIn')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/GoogleSignIn',
+                ])
+			} else if (name.startsWith('InAppSettingsKit-InAppSettingsKit')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/InAppSettingsKit',
+                ])
+			} else if (name.startsWith('InAppSettingsKit')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/InAppSettingsKit',
+                ])
+			} else if (name.startsWith('MSGraphClientSDK')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/MSGraphClientSDK',
+                ])
+			} else if (name.startsWith('MSGraphClientModels')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/MSGraphClientModels',
+                ])
+			} else if (name.startsWith('GoogleAPIClientForREST')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/GoogleAPIClientForREST',
+                ])
+			} else if (name.startsWith('GTMAppAuth')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/GTMAppAuth',
+                ])
+			} else if (name.startsWith('GTMSessionFetcher')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/GTMSessionFetcher',
+                ])
+			} else if (name.startsWith('CocoaHTTPServer-iOS')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/CocoaHTTPServer-iOS',
+                ])
+			} else if (name.startsWith('AppAuth')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/AppAuth',
+                ])
+			} else if (name.startsWith('AFNetworking-iOS')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/AFNetworking-iOS',
+                ])
+			} else if (name.startsWith('ADAL')) {
+                buildSettings.from([
+					CONFIGURATION_BUILD_DIR: '$(SYMROOT)/$(CONFIGURATION)-$(PLATFORM_NAME)/ADAL',
+                ])
+            }
 		}
 	}
 }
